@@ -14,6 +14,20 @@ class Login extends Component {
         }
     }
 
+    getUsers = () => {
+        // fetch from the backend
+        fetch(baseUrl + '/users', {
+            credentials: 'include'
+        })
+        .then(res => {
+            if(res.status === 200) {
+                return res.json()
+            } else {
+                return []
+            }
+        })
+    }
+
     // login 
     loginUser = async (e) => {
         console.log('loginUser')
@@ -36,16 +50,21 @@ class Login extends Component {
             })
 
             console.log(response)
+            console.log(response.body)
             console.log('BODY: ', response.body)
 
             if(response.status === 200) {
-                // this.getProfiles()
+                this.getUsers()
                 console.log('🌈 login successful!🌈')
+                this.setState({
+                    userLoggedIn: true
+                })
             }
         }
         catch (error) {
             console.log('Error => ', error)
         }
+        
     }
 
     // signup
@@ -53,6 +72,7 @@ class Login extends Component {
         e.preventDefault()
         const url = baseUrl + '/users/signup'
         try {
+
             const response = await fetch(url, {
                 method: 'POST', 
                 body: JSON.stringify({
@@ -63,13 +83,14 @@ class Login extends Component {
                     'Content-Type': 'application/json'
                 }
             })
-            if (response.status === 200) {
-                // this.getProfiles()
+            if (response.status === 201) {
+                this.getUsers()
                 console.log('🏄‍♀️ singup successful! 🏄‍♂️')
             }
         }
         catch (error) {
             console.log('Error => ', error)
+            console.log()
         }
     }
 
@@ -80,22 +101,24 @@ class Login extends Component {
                 <div className='container'>
                     <div className='row align-items-center my-5'>
                         <form onSubmit={this.loginUser}>
-                        <strong>Login</strong>
-                            <label htmlFor='username'>Username: </label>
+
                             <input type ='text' id='username' name='username'/>
-                            <label htmlFor='name'>Password: </label>
-                            <input type='text' id='password' name='password'/>
+                            
+                            <input type='password' id='password' name='password'/>
+
                             <input type='submit' value='login' />
+
                         </form>
-                        OR
+                        
                         <form onSubmit={this.signup}>
-                            <strong>Register</strong>
-                            <label htmlFor='username'>Username:</label>
+                            
                             <input type='text' id='username' name='username'/>
-                            <label htmlFor='name'>Password: </label>
-                            <input type='text' id='password' name='password'/>
+                            
+                            <input type='password' id='password' name='password'/>
+
                             <input type='submit'
-                            value='signup' />                    
+                            value='signup' />        
+
                         </form>
                     </div>
                 </div>
