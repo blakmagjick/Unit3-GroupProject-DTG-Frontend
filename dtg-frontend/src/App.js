@@ -15,7 +15,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      gamers: null
+      gamers: []
     }
   }
 
@@ -54,7 +54,7 @@ class App extends Component {
             <Route path="/about" exact component={() => <About />} />
             <Route path="/login" exact component={() => <Login />} />
             <Route path="/addgamer" exact component={() => <NewUser baseURL={baseURL} addGamer={this.addGamer}/>} />
-            <Route path="/gamers" exact component={() => <AllGamers />} />
+            <Route path="/gamers" exact component={() => <AllGamers gamers={this.state.gamers}/>} />
           </Switch>
         </Router>
         <Footer />

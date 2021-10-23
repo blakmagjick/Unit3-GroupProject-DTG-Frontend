@@ -8,3 +8,7 @@ header {
   color: white;
   font-family: 'Chakra Petch', sans-serif;
 }
+.gamer{
+  display: inline-block;
+  margin: 15px;
+}
