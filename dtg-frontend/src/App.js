@@ -6,6 +6,7 @@ import Footer from './Footer'
 import Header from './Header'
 import Navigation from './Navigation'
 import AllGamers from './AllGamers'
+import Login from './Login'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Navigation />
         <Switch>
           <Route path="/about" exact component={() => <About />} />
+          <Route path="/login" exact component={() => <Login />} />
           <Route path="/gamers" exact component={() => <AllGamers />} />
         </Switch>
       </Router>
