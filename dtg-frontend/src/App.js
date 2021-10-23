@@ -53,10 +53,10 @@ class App extends Component {
           <Switch>
             <Route path="/about" exact component={() => <About />} />
             <Route path="/login" exact component={() => <Login />} />
+            <Route path="/addgamer" exact component={() => <NewUser baseURL={baseURL} addGamer={this.addGamer}/>} />
             <Route path="/gamers" exact component={() => <AllGamers />} />
           </Switch>
         </Router>
-        <NewUser baseURL={baseURL} addGamer={this.addGamer}/>
         <Footer />
       </React.Fragment>
     )

@@ -33,6 +33,15 @@ function Navigation(props) {
               </li>
               <li
                 className={`nav-item  ${
+                  props.location.pathname === "/addgamer" ? "active" : ""
+                }`}
+              >
+                <Link className="nav-link" to="/addgamer">
+                  Create Profile
+                </Link>
+              </li>
+              <li
+                className={`nav-item  ${
                   props.location.pathname === "/gamers" ? "active" : ""
                 }`}
               >
