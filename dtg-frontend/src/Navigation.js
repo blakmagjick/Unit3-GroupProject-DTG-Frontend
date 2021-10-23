@@ -1,22 +1,51 @@
-import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
-
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
 
 function Navigation(props) {
+  return (
+    <div className="navigation">
+      <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <div className="container">
+          <Link className="navbar-brand" to="/">
+            Welcome Gamers!
+          </Link>
 
-    return(
-        < div className='navigation'>
-            <nav class='navbar navbar-expand navbar-dark bg-dark'>
-                <div class='container'>
-                    <a class='navbar-brand' src='/'>
-                    DTG Site
-                    </a>
-                </div>
-
-            </nav>
-        
+          <div>
+            <ul className="navbar-nav ml-auto">
+              <li
+                className={`nav-item  ${
+                  props.location.pathname === "/" ? "active" : ""
+                }`}
+              >
+                <Link className="nav-link" to="/">
+                  Home
+                  <span className="sr-only">(current)</span>
+                </Link>
+              </li>
+              <li
+                className={`nav-item  ${
+                  props.location.pathname === "/about" ? "active" : ""
+                }`}
+              >
+                <Link className="nav-link" to="/about">
+                  About
+                </Link>
+              </li>
+              <li
+                className={`nav-item  ${
+                  props.location.pathname === "/gamers" ? "active" : ""
+                }`}
+              >
+                <Link className="nav-link" to="/gamers">
+                  All Gamers
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-    )
-
-
+      </nav>
+    </div>
+  );
 }
+
+export default withRouter(Navigation);
