@@ -85,7 +85,7 @@ class Login extends Component {
             })
             if (response.status === 201) {
                 this.getUsers()
-                console.log('🏄‍♀️ singup successful! 🏄‍♂️')
+                console.log('🏄‍♀️ signup successful! 🏄‍♂️')
             }
         }
         catch (error) {
