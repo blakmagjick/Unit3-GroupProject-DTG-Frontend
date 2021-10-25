@@ -54,20 +54,22 @@ export default class NewUser extends Component {
     render(){
         return(
             <React.Fragment>
-                <h2>Ready Player One?</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='name'>Name:</label>
-                    <input type='text' id='name' name='name' onChange={(event) => this.handleChange(event)} ></input><br />
-                    <label htmlFor='profilePic'>Avatar:</label>
-                    <input type='text' id='profilePic' name='profilePic' onChange={(event) => this.handleChange(event)}></input><br />
-                    <label htmlFor='age'>Age:</label>
-                    <input type='number' id='age' name='age' onChange={(event) => this.handleChange(event)}></input><br />
-                    <label htmlFor='location'>Location:</label>
-                    <input type='text' id='location' name='location' onChange={(event) => this.handleChange(event)}></input><br />
-                    <label htmlFor='faveGames'>Fave Games:</label>
-                    <input type='text' id='faveGames' name='faveGames' onChange={(event) => this.handleChange(event)}></input><br />
-                    <input type='submit' value='Create Profile' />
-                </form>
+      <div id='newformdiv'>
+                    <h2>Ready Player One?</h2>
+                        <form id='newform' onSubmit={this.handleSubmit}>
+                            <label htmlFor='name'>Name: &nbsp;</label>
+                            <input type='text' id='name' name='name' onChange={(event) => this.handleChange(event)}></input><br />
+                            <label htmlFor='profilePic'>Avatar: &nbsp;</label>
+                            <input type='text' id='profilePic' name='profilePic' onChange={(event) => this.handleChange(event)}></input><br />
+                            <label htmlFor='age'>Age: &nbsp;</label>
+                            <input type='number' id='age' name='age' onChange={(event) => this.handleChange(event)}></input><br />
+                            <label htmlFor='location'>Location: &nbsp;</label>
+                            <input type='text' id='location' name='location' onChange={(event) => this.handleChange(event)}></input><br />
+                            <label htmlFor='faveGames'>Fave Games: &nbsp;</label>
+                            <input type='text' id='faveGames' name='faveGames' onChange={(event) => this.handleChange(event)}></input><br />
+                            <input type='submit' value='Create Profile' />
+                        </form>
+                </div>
             </React.Fragment>
         )
     }
