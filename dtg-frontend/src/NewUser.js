@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 export default class NewUser extends Component {
     constructor(props){
         super(props)
@@ -56,7 +57,7 @@ export default class NewUser extends Component {
                 <h2>Ready Player One?</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor='name'>Name:</label>
-                    <input type='text' id='name' name='name' onChange={(event) => this.handleChange(event)}></input><br />
+                    <input type='text' id='name' name='name' onChange={(event) => this.handleChange(event)} ></input><br />
                     <label htmlFor='profilePic'>Avatar:</label>
                     <input type='text' id='profilePic' name='profilePic' onChange={(event) => this.handleChange(event)}></input><br />
                     <label htmlFor='age'>Age:</label>
