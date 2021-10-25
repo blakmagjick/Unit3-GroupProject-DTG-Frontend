@@ -13,12 +13,16 @@ header {
   margin: 15px;
 }
 #newformdiv {
-  margin-top:20px;
-
+  margin-top:10px;
+  margin-left: 15px;
 }
 #newformdiv label {
   display: inline-block;
   width: 110px;
   text-align: right;
+}
+#userinfo {
+  font-weight: bold;
+  text-align: center;
 }
 
