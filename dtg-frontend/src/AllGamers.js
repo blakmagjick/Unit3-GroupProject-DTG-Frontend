@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchGamer from './SearchGamer';
 
 export default class AllGamers extends Component {
     constructor(props){
@@ -21,12 +22,14 @@ export default class AllGamers extends Component {
                             )
                         })
                     }
+                <SearchGamer />
                 </React.Fragment>
             )
         } else {
             return(
                 <React.Fragment>
                     <p>Tricksy Hobbitses Bug Fix</p>
+                    <SearchGamer />
                 </React.Fragment>
             )
         } 
