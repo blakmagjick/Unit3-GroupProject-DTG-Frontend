@@ -3,11 +3,11 @@ import React, { Component } from 'react'
 let baseUrl = 'http://localhost:3003'
 
 class Login extends Component {
-
+    
     constructor(props) {
         super(props)
-
-        this.state = {
+    
+    this.state = {
             username: '',
             password: '',
             userLoggedIn: false,
@@ -85,7 +85,7 @@ class Login extends Component {
             })
             if (response.status === 201) {
                 this.getUsers()
-                console.log('🏄‍♀️ signup successful! 🏄‍♂️')
+                console.log('🏄‍♀️ singup successful! 🏄‍♂️')
             }
         }
         catch (error) {

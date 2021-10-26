@@ -7,6 +7,7 @@ export default class AllGamers extends Component {
 
         }
     }
+    
     render(){
         const gamerList = this.props.gamers
         if (gamerList.length) {
