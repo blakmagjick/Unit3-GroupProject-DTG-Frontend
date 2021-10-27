@@ -23,6 +23,7 @@ export default class AllGamers extends Component {
                             )
                         })
                     }
+                <SearchGamer />
                 </React.Fragment>
             )
         } else {
