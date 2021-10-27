@@ -33,6 +33,7 @@ export default class NewUser extends Component {
             headers: {
             'Content-Type': 'application/json'
             },
+            credentials: 'include'
         })
         .then(response => {
             return response.json()

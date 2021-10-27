@@ -7,6 +7,7 @@ import Header from './Header'
 import Navigation from './Navigation'
 import AllGamers from './AllGamers'
 import Login from './Login'
+import SignUp from './SignUp'
 import NewUser from './NewUser'
 
 let baseURL = 'http://localhost:3003'
@@ -20,9 +21,16 @@ class App extends Component {
   }
 
   getGamers = () => {
-    fetch(baseURL + '/gamers')
+    fetch(baseURL + '/gamers', {
+      credentials: 'include'
+    })
+    
     .then(response => {
-      return response.json()
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        return []
+      }
       }) 
     .then(data => {
       console.log(data)
@@ -52,6 +60,7 @@ class App extends Component {
           <Navigation />
           <Switch>
             <Route path="/about" exact component={() => <About />} />
+            <Route path="/signup" exact component={() => <SignUp />} />
             <Route path="/login" exact component={() => <Login />} />
             <Route path="/addgamer" exact component={() => <NewUser baseURL={baseURL} addGamer={this.addGamer}/>} />
             <Route path="/gamers" exact component={() => <AllGamers gamers={this.state.gamers}/>} />
