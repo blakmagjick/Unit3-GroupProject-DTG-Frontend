@@ -9,6 +9,7 @@ import AllGamers from './AllGamers'
 import Login from './Login'
 import SignUp from './SignUp'
 import NewUser from './NewUser'
+import Profile from './Profile'
 
 let baseURL = 'http://localhost:3003'
 
@@ -64,6 +65,7 @@ class App extends Component {
             <Route path="/login" exact component={() => <Login />} />
             <Route path="/addgamer" exact component={() => <NewUser baseURL={baseURL} addGamer={this.addGamer}/>} />
             <Route path="/gamers" exact component={() => <AllGamers gamers={this.state.gamers}/>} />
+            <Route path="/profile" exact component={() => <Profile profile={this.state.gamers}/>} />
           </Switch>
         </Router>
         <Footer />

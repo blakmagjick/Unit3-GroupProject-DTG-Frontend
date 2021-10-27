@@ -1,41 +1,47 @@
-import React  from 'react'
+import React, { Component } from 'react';
 import './App.css';
+import Comments from './Comments'
+// import StarRating from './StarRating';
+import HeartButton from './HeartButton';
 
-function Profile (props){ 
-    
-    const results = props.data;
+export default class Profile extends Component {
+    constructor(props){
+        super(props)
+        this.state={
 
+        }
+    }
+    render(){
+    const results = this.props.profile;
+    console.log(results)
     // console.log(results)
-    let gamer;
-    
+ 
+        
     if (results.length) {
-        
-        gamer = results.map((gamer, i) => <li key={i}> 
-        <div>
-        {gamer.username} <br />
-        {gamer.profilePic}
-        {gamer.age}
-        {gamer.location}
-        {gamer.faveGames}
-        </div>
-       
-      
-        </li>)    
-        
-      } else {
-        //gamer = console.log('notgood')
-       
-      }
-
-  return(
-       <div>
-          
-            {gamer} 
+        return(
+            <React.Fragment>
+                <div className="App">
+                     <HeartButton />
+                 {/* <StarRating /> */}
+                 </div>
+                <h1>Profile Info</h1>
+                <img src={results[1].profilePic} alt={results[1].name} width='150px'></img>
+                Name: {results[1].name}
+                Age:{results[1].age}
+                Location: {results[1].location}
+                Fave Games:{results[1].faveGames}
+           <Comments
+    commentsUrl="http://localhost:3000/comments"
+    currentUserId="1"></Comments>
             
-        </div>
-          
-    
-  );
-}
 
-export default Profile;
+            </React.Fragment>
+        )
+    } else {
+        return(
+            <React.Fragment>
+                
+            </React.Fragment>)
+    }       
+  }
+}
