@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 export default class NewUser extends Component {
     constructor(props){
         super(props)
@@ -34,6 +33,7 @@ export default class NewUser extends Component {
             headers: {
             'Content-Type': 'application/json'
             },
+            credentials: 'include'
         })
         .then(response => {
             return response.json()
@@ -54,7 +54,7 @@ export default class NewUser extends Component {
     render(){
         return(
             <React.Fragment>
-      <div id='newformdiv'>
+                <div id='newformdiv'>
                     <h2>Ready Player One?</h2>
                         <form id='newform' onSubmit={this.handleSubmit}>
                             <label htmlFor='name'>Name: &nbsp;</label>

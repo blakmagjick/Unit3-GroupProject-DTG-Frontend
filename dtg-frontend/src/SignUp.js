@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 let baseUrl = 'http://localhost:3003'
 
-class Login extends Component {
+class SignUp extends Component {
     
     constructor(props) {
         super(props)
@@ -28,57 +28,48 @@ class Login extends Component {
         })
     }
 
-    // login 
-    loginUser = async (e) => {
-        console.log('loginUser')
+    // signup
+    signup = async (e) => {
         e.preventDefault()
-
-        const url = baseUrl + '/users/login'
-        const loginBody = {
-            username: e.target.username.value,
-            password: e.target.password.value
-        }
+        const url = baseUrl + '/users/signup'
         try {
-            
+
             const response = await fetch(url, {
-                method: 'POST',
-                body: JSON.stringify(loginBody),
+                method: 'POST', 
+                body: JSON.stringify({
+                    username: e.target.username.value,
+                    password: e.target.password.value
+                }),
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                credentials: 'include'
+                }
             })
-
-            console.log(response)
-            console.log(response.body)
-            console.log('BODY: ', response.body)
-
-            if(response.status === 200) {
+            if (response.status === 201) {
                 this.getUsers()
-                console.log('🌈 login successful!🌈')
-                this.setState({
-                    userLoggedIn: true
-                })
+                console.log('🏄‍♀️ signup successful! 🏄‍♂️')
             }
         }
         catch (error) {
             console.log('Error => ', error)
+            console.log()
         }
-        
     }
+
 
     render(){
         return(
             <div className ='login'>
                 <div className='container'>
                     <div className='row align-items-center my-5'>
-                        <form onSubmit={this.loginUser}>
-
-                            <input type ='text' id='username' name='username'/>
+                        
+                        <form onSubmit={this.signup}>
+                            
+                            <input type='text' id='username' name='username'/>
                             
                             <input type='password' id='password' name='password'/>
 
-                            <input type='submit' value='login' />
+                            <input type='submit'
+                            value='signup' />        
 
                         </form>
                     </div>
@@ -88,4 +79,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default SignUp
