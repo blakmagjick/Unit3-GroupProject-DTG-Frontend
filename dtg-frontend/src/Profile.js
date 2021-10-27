@@ -23,11 +23,12 @@ export default class Profile extends Component {
                   <img 
                     src={results[1].profilePic} 
                     alt={results[1].name} 
-                    width='150px' />
-                  Name: {results[1].name}
-                  Age:{results[1].age}
-                  Location: {results[1].location}
-                  Fave Games:{results[1].faveGames}
+                    width='150px' /><br />
+                  Name: {results[1].name}<br />
+                  Age:{results[1].age}<br />
+                  Location: {results[1].location}<br />
+                  Fave Games:{results[1].faveGames}<br />
+                  <br />
               <Comments
                 commentsUrl="http://localhost:3000/comments"
                 currentUserId="1" />
