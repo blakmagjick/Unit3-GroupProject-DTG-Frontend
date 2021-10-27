@@ -25,7 +25,6 @@ class App extends Component {
     fetch(baseURL + '/gamers', {
       credentials: 'include'
     })
-    
     .then(response => {
       if (response.status === 200) {
         return response.json()

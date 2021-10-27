@@ -1,15 +1,19 @@
 import React, { Component } from "react";
+
 export default class HeartButton extends Component {
-    state = {
-      likes: 0
-    };
-  
+    constructor(props){
+        super(props)
+        this.state = {
+            likes: 0
+        }
+    }
+
     addLike = () => {
       let newCount = this.state.likes + 1;
-       this.setState({
-       likes: newCount
-       });
-    };
+        this.setState({
+            likes: newCount
+        });
+    }
   
     render() {
       const likes = this.state.likes;
@@ -23,7 +27,7 @@ export default class HeartButton extends Component {
               <i className="far fa-heart fa-lg" style={{ color: "#33c3f0" }}></i>
             </button>
           </div>
-        );
+        )
       }
       if (likes === 1) {
         return (
@@ -32,7 +36,7 @@ export default class HeartButton extends Component {
               <i className="fas fa-heart fa-lg" style={{ color: "red" }}></i>
             </button>
           </div>
-        );
+        )
       }
       if (likes > 1) {
         return (
@@ -42,7 +46,7 @@ export default class HeartButton extends Component {
               {likes}
             </button>
           </div>
-        );
+        )
       }
     }
   }
