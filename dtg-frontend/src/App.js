@@ -7,6 +7,7 @@ import Header from './Header'
 import Navigation from './Navigation'
 import AllGamers from './AllGamers'
 import Login from './Login'
+import Logout from './Logout'
 import SignUp from './SignUp'
 import NewUser from './NewUser'
 import Profile from './Profile'
@@ -62,6 +63,7 @@ class App extends Component {
             <Route path="/about" exact component={() => <About />} />
             <Route path="/signup" exact component={() => <SignUp />} />
             <Route path="/login" exact component={() => <Login />} />
+            <Route path="/logout" exact component={() => <Logout />} />
             <Route path="/addgamer" exact component={() => <NewUser baseURL={baseURL} addGamer={this.addGamer}/>} />
             <Route path="/gamers" exact component={() => <AllGamers gamers={this.state.gamers}/>} />
             <Route path="/profile" exact component={() => <Profile profile={this.state.gamers}/>} />
