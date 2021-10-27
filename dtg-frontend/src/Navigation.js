@@ -42,6 +42,15 @@ function Navigation(props) {
               </li>
               <li
                 className={`nav-item  ${
+                  props.location.pathname === "/logout" ? "active" : ""
+                }`}
+              >
+                <Link className="nav-link" to="/logout">
+                  Logout
+                </Link>
+              </li>
+              <li
+                className={`nav-item  ${
                   props.location.pathname === "/addgamer" ? "active" : ""
                 }`}
               >
