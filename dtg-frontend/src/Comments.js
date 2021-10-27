@@ -5,8 +5,7 @@ import {
   getComments as getCommentsApi,
   createComment as createCommentApi,
   updateComment as updateCommentApi,
-  deleteComment as deleteCommentApi,
-} from "./Api";
+  deleteComment as deleteCommentApi,} from "./Api";
 
 const Comments = ({ commentsUrl, currentUserId }) => {
   const [backendComments, setBackendComments] = useState([]);
@@ -61,7 +60,9 @@ const Comments = ({ commentsUrl, currentUserId }) => {
     <div className="comments">
       <h3 className="comments-title">Comments</h3>
       <div className="comment-form-title">Write comment</div>
-      <CommentForm submitLabel="Write" handleSubmit={addComment} />
+        <CommentForm 
+            submitLabel="Write" 
+            handleSubmit={addComment} />
       <div className="comments-container">
         {rootComments.map((rootComment) => (
           <Comment
