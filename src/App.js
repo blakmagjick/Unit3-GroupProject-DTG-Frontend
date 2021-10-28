@@ -12,7 +12,7 @@ import SignUp from './SignUp'
 import NewUser from './NewUser'
 import Profile from './Profile'
 
-let baseURL = 'http://localhost:3003'
+let baseURL = process.env.REACT_APP_BASEURL
 
 class App extends Component {
   constructor(props){
@@ -54,6 +54,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(baseURL)
     return (
       <React.Fragment>
         <Header />
