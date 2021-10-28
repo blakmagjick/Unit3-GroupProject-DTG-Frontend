@@ -58,7 +58,7 @@ function Navigation(props) {
                   Create Profile
                 </Link>
               </li>
-              <li
+              {/* <li
                 className={`nav-item  ${
                   props.location.pathname === "/profile" ? "active" : ""
                 }`}
@@ -66,7 +66,7 @@ function Navigation(props) {
                 <Link className="nav-link" to="/Profile">
                   Profile 
                 </Link>
-              </li>
+              </li> */}
               <li
                 className={`nav-item  ${
                   props.location.pathname === "/gamers" ? "active" : ""
