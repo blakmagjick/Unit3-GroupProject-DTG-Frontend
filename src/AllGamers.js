@@ -19,8 +19,10 @@ export default class AllGamers extends Component {
                     {gamerList.map((gamer, i) => {
                         return(
                             <div key={i} className='gamer'>
-                            {/* ** Need to update this link once deployed to the heroku link */}
-                            <a href={'http://localhost:3000/profile/'+gamer._id} ><img src={gamer.profilePic} alt={gamer.name} width='150px'/></a>
+                            {/* LOCAL*/}
+                            {/* <a href={'http://localhost:3000/profile/'+gamer._id} ><img src={gamer.profilePic} alt={gamer.name} width='150px'/></a> */}
+                            {/* DEPLOYMENT*/}
+                            <a href={'https://dtg-downtogame.herokuapp.com/profile/'+gamer._id} ><img src={gamer.profilePic} alt={gamer.name} width='150px'/></a>
                             <p id='userinfo'>{gamer.name}</p>
                             </div>
                             )

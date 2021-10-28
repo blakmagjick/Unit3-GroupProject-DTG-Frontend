@@ -23,7 +23,8 @@ export default function Profile(props) {
                     Name: {profileData.name}<br />
                   <br />
                 <Comments
-                  commentsUrl="http://localhost:3000/comments"
+                  commentsUrl="https://dtg-downtogame.herokuapp.com/comments" // (DEPLOYMENT)
+                  // commentsUrl="http://localhost:3000/comments" (LOCAL)
                   currentUserId="1" />
               </React.Fragment>
           )
