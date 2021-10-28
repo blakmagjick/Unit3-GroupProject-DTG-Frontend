@@ -10,6 +10,7 @@ export default class AllGamers extends Component {
     }
     
     render(){
+        console.log(this.props.baseURL)
         const gamerList = this.props.gamers
         if (gamerList.length) {
             return(
@@ -17,8 +18,9 @@ export default class AllGamers extends Component {
                     {gamerList.map((gamer, i) => {
                         return(
                             <div key={i} className='gamer'>
-                                <a href='http://localhost:3000/'><img src={gamer.profilePic} alt={gamer.name} width='150px'/></a>
-                                <p id='userinfo'>{gamer.name}</p>
+                            {/* ** Need to update this link once deployed to the heroku link */}
+                            <a href={'http://localhost:3000/profile/'+gamer._id} ><img src={gamer.profilePic} alt={gamer.name} width='150px'/></a>
+                            <p id='userinfo'>{gamer.name}</p>
                             </div>
                             )
                         })
