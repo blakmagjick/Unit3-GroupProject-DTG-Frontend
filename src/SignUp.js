@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-let baseUrl = 'http://localhost:3003'
+let baseUrl = process.env.REACT_APP_BASEURL
 
 class SignUp extends Component {
     
