@@ -54,7 +54,7 @@ class App extends Component {
   }
 
   render() {
-    // console.log(baseURL)
+    console.log(baseURL)
     return (
       <React.Fragment>
         <Header />
