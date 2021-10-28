@@ -3,7 +3,7 @@ import axios from 'axios'
 
 let baseURL = process.env.REACT_APP_BASEURL
 
-function SearchGamer() {
+function SearchGames() {
 
   const [allData, setAllData] = useState([])
   const [filteredData, setFilteredData] = useState(allData)
@@ -13,7 +13,7 @@ function SearchGamer() {
     let result = []
 
     result = allData.filter((data) => {
-      return data.name.search(value) !== -1
+      return data.faveGames.search(value) !== -1
     })
     setFilteredData(result)
   }
@@ -54,7 +54,7 @@ function SearchGamer() {
           <input 
           type="text" 
           onChange={(event) =>handleSearch(event)} 
-          placeholder='search gamer'
+          placeholder='search for games'
           />
           {/* <input 
             type='submit'
@@ -69,7 +69,7 @@ function SearchGamer() {
         return(
           <div key={index}>
             <div style={styles}>
-            {value.name.toLowerCase()}<br />
+            {value.faveGames}<br />
             <img src={value.profilePic} alt={value.profilePic} style={{width: 150}}/>
             </div>
           </div>
@@ -80,4 +80,4 @@ function SearchGamer() {
   );
 }
 
-export default SearchGamer;
+export default SearchGames;
