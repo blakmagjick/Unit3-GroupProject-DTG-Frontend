@@ -7,6 +7,11 @@ export default class MyProfile extends Component {
 
         }
     }
+
+    editUser = () => {
+
+    }
+
     render(){
         return (
             <div> 
@@ -16,7 +21,7 @@ export default class MyProfile extends Component {
                 <aside>{this.props.profile[0].location}</aside>
                 <aside>{this.props.profile[0].faveGames}</aside>
                 <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => this.props.deleteGamer(this.props.gamers[0])}>Delete</button>
             </div>
         )
     }

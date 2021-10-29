@@ -72,6 +72,23 @@ class App extends Component {
     })
   }
 
+  deleteGamer = (id) => {
+    console.log(id)
+    fetch(baseURL + '/gamers/' + id, {
+      method: 'DELETE',
+      credentials: "include"
+    })
+    .then( res => {
+    console.log(res)
+    const findIndex = this.state.gamers.findIndex(gamer => gamer._id === id)
+    const copyGamers = [...this.state.gamers]
+    copyGamers.splice(findIndex, 1)
+    this.setState({
+      gamers: copyGamers
+    })
+  })
+}
+
   componentDidMount(){
     this.getGamers()
   }
@@ -90,8 +107,8 @@ class App extends Component {
             <Route path="/logout" exact component={() => <Logout />} />
             <Route path="/addgamer" exact component={() => <NewUser baseURL={baseURL} addGamer={this.addGamer}/>} />
             <Route path="/gamers" exact component={() => <AllGamers gamers={this.state.gamers} baseURL={baseURL}/>} />
-            <Route path="/profile" exact component={() => <MyProfile profile={this.state.gamers}/>} />
-            <Route path="/profile/:id" exact component={() =>   <Profile profiles={this.state.gamers} /> }/> 
+            <Route path="/profile" exact component={() => <MyProfile profile={this.state.gamers} deleteGamer={this.deleteGamer}/>} />
+            <Route path="/profile/:id" exact component={() => <Profile profiles={this.state.gamers} /> }/> 
           </Switch>
         </Router>
         <Footer />
