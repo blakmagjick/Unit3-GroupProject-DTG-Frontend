@@ -11,14 +11,16 @@ import Logout from './Logout'
 import SignUp from './SignUp'
 import NewUser from './NewUser'
 import Profile from './Profile'
+import MyProfile from './MyProfile'
 
 let baseURL = process.env.REACT_APP_BASEURL
+
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      gamers: []
+      gamers: [],
     }
   }
 
@@ -88,7 +90,7 @@ class App extends Component {
             <Route path="/logout" exact component={() => <Logout />} />
             <Route path="/addgamer" exact component={() => <NewUser baseURL={baseURL} addGamer={this.addGamer}/>} />
             <Route path="/gamers" exact component={() => <AllGamers gamers={this.state.gamers} baseURL={baseURL}/>} />
-            {/* <Route path="/profile" exact component={() => <Profile profile={this.state.gamers}/>} /> */}
+            <Route path="/profile" exact component={() => <MyProfile profile={this.state.gamers}/>} />
             <Route path="/profile/:id" exact component={() =>   <Profile profiles={this.state.gamers} /> }/> 
           </Switch>
         </Router>

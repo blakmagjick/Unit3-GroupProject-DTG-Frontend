@@ -9,7 +9,7 @@ function SearchGamer() {
   const [filteredData, setFilteredData] = useState(allData)
 
   const handleSearch = (event) => {
-    let value = event.target.value.toLowerCase()
+    let value = event.target.value
     let result = []
 
     result = allData.filter((data) => {
@@ -55,7 +55,7 @@ function SearchGamer() {
           type="text" 
           onChange={(event) =>handleSearch(event)} 
           placeholder='search gamer'
-          />
+          /><aside style={{fontSize:15}}>**names are case sensitive</aside>
           {/* <input 
             type='submit'
             value='search gamer'
@@ -69,7 +69,7 @@ function SearchGamer() {
         return(
           <div key={index}>
             <div style={styles}>
-            {value.name.toLowerCase()}<br />
+            {value.name}<br />
             <img src={value.profilePic} alt={value.profilePic} style={{width: 150}}/>
             </div>
           </div>

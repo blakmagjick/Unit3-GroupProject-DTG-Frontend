@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
+
 class Login extends Component {
     
     constructor(props) {
@@ -59,6 +60,7 @@ class Login extends Component {
                 this.setState({
                     userLoggedIn: true
                 })
+                window.location='/gamers'
             }
         }
         catch (error) {
