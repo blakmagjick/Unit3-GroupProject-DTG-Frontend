@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# DTG - 🎲 Down to Game 🎮
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### App Idea: 
+An app to find other people to play video games and board games with. Kind of like a dating app, but for nerds. Find other people who like the same games as you, and like their profiles and then see if they also want to play games with you.
 
-## Available Scripts
+#### Unit 3's Group Project for General Assembly's SEI course. 
+Need to build a fully functional CRUD app using React. \
+Group Memebers: Matt Aguiluz, Hong Ngo & Suzy Roy
 
-In the project directory, you can run:
+### Technologies Used
+Server side: ES6, Node.js, Express\
+Database: MongoDB Atlas\
+Front end: React, React Router, HTML, CSS, Javascript\
+Tools: Git, GitHub, Heroku
 
-### `npm start`
+Deployed Link: https://dtg-downtogame.herokuapp.com/about \
+Frontend Github: https://github.com/blakmagjick/Unit3-GroupProject-DTG-Frontend \
+Backend Github: https://github.com/blakmagjick/Unit3-GroupProject-DTG-Backend \
 
-Runs the app in the development mode.\
-Open [http://:3000](http://localhost:3000) to view it in the browser.
+## User Stories
+As a user, I want to be able to log in in order to create my profile.\
+As a user, I want to only be able to edit and delete my own profile.\
+As a user, I want to be able to search other profiles.\
+As a user, I want to be able to 'like' another user's profile so that they know that I'm interested in playing games with them.\
+As a user, I want to be able to leave comments on other user's profile.\
+  
+## Wireframes
+### Index Page/All Gamers:
+![f6e6cc80-30d9-11ec-958f-ae492aa4ddd8](https://user-images.githubusercontent.com/6404196/139517942-73f191d1-a2be-4f5e-b35c-a44023e74b49.png)
+ 
+### Show Page:
+![f51d0900-30d9-11ec-8794-e79334e5ba57](https://user-images.githubusercontent.com/6404196/139517948-9d9f970e-e155-4747-a8c4-05ff00b5307c.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Register/Create Profile:
+![ee8e9180-30d9-11ec-9245-91648d96a94e](https://user-images.githubusercontent.com/6404196/139517982-e59dd17b-84c5-48a7-bc02-f2ec098378ca.png)
+![f2baaf00-30d9-11ec-8dd2-7852377ae099](https://user-images.githubusercontent.com/6404196/139517963-04d50e29-4768-4808-8168-4e2fa789af45.png)
 
-### `npm test`
+## Aproach Taken
+- GitHub: Suzy dealt with the main GitHub repos, that Matt and Hong forked and then made pull requests to.
+- Backend: Server.js filed worked on by Suzy. Controllers and Routes split between Matt & Hong.
+- Frontend: Matt worked on login/logout and search function. Hong added the single user profile page and comment and like components. Suzy figured out React Router so that we could build a multi page app and put the All Gamer component together. Hong and Suzy split the CSS, Hong doing the Profile page, and Suzy working on the main page and forms. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Unsolved Problems
+- Tried coding a the search function using a different approach than one used in project two, it doesn't work quite as we were hoping.
+- Wanted to have the Like button be used only once per user, didn't get that figured out.
 
-### `npm run build`
+## MVP Goals
+[x] Login functionality\
+[x] User needs to be able to create a profile\
+[x] Users needs to be able to search through profiles\
+[x] Users can 'like' other profiles\
+[x] Users can leave comments on profiles to set up gaming date\
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Stretch Goals
+[ ] Chat functionality (instead of just comments on the page)\
+[ ] Hover over picture, change from avatar to actual photo of user\
+[ ] Board game API to easily add games to profile (instead of adding manually)\
+[ ] Google Map API for user location\
+[ ] Upload photo from computer functionality (for profile pics)\
+[ ] Optimize for mobile viewing\
+ 
