@@ -33,7 +33,7 @@ export default function Profile(props) {
               <Comments
                 commentsUrl="https://dtg-downtogame.herokuapp.com/comments"
                 currentUserId="1"/> <br />
-                <input id="button" type="button" value="delete" onclick={() => this.deleteUser(profileData._id)} />
+                {/* <input id="button" type="button" value="delete" onclick={() => this.deleteUser(profileData._id)} /> */}
                 </div>
           )
       } else {
