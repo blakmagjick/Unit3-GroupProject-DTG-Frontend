@@ -19,7 +19,7 @@ export default class AllGamers extends Component {
                         return(
                             <div key={i} className='gamer'>
                                 <aside id='userinfo'>{user.username}</aside>
-                                <a href={'https://dtg-downtogame.herokuapp.com/profile/'+user._id} ><img src={user.profilePic} alt={user.username} height='150px'/></a>
+                                <a href={'https://dtg-downtogame.herokuapp.com/profile/'+user._id} ><img src={user.profilePic} alt={user.username} height='150px' width='150px'/></a>
                             </div>
                             )
                         })
