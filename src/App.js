@@ -136,6 +136,21 @@ getGamers = () => {
   console.log()
 }
 
+deleteUser = (id) => {
+  // console.log(id)
+  fetch(baseURL + '/users/' + id, {
+  method: 'DELETE',
+  credentials: "include"
+}).then( res => {
+  const findIndex = this.state.users.findIndex(user => user._id === id)
+  const copyUsers = [...this.state.users]
+  copyUsers.splice(findIndex, 1)
+  this.setState({
+    users: copyUsers
+  })
+})
+}
+
   getUserById = (id) => {
     fetch(this.props.baseURL + '/users/' + id,  {
       credentials: 'include'
@@ -181,7 +196,7 @@ getGamers = () => {
             <Route path="/login" exact component={() => <Login loginUser={this.loginUser}/>} />
             <Route path="/logout" exact component={() => <Logout />} />
             <Route path="/gamers" exact component={() => <AllGamers users={this.state.users}/>} />
-            <Route path="/profile/:id" exact component={() =>   <Profile profiles={this.state.users} /> }/>  
+            <Route path="/profile/:id" exact component={() =>   <Profile deleteUser={this.deleteUser} profiles={this.state.users} /> }/>  
           </Switch>
         </Router>
         <Footer />

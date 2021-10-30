@@ -30,7 +30,7 @@ const Comment = ({
   return (
     <div id='bettercomments' key={comment.id} className="comment">
       <div className="comment-image-container">
-        <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/speech-balloon_1f4ac.png" alt='chat emoji'/>
+        <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/speech-balloon_1f4ac.png" width='10px' alt='chat emoji'/>
       </div>
       <div className="comment-right-part">
         <div className="comment-content">
