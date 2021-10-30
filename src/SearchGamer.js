@@ -70,7 +70,7 @@ function SearchGamer() {
           <div key={index}>
             <div style={styles}>
             {value.username}<br />
-            <img src={value.profilePic} alt={value.profilePic} style={{width: 150}}/>
+            <img src={value.profilePic} alt={value.profilePic} style={{width: 150, height: 150}}/>
             </div>
           </div>
         )
