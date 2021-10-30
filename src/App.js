@@ -7,48 +7,141 @@ import Header from './Header'
 import Navigation from './Navigation'
 import AllGamers from './AllGamers'
 import Login from './Login'
-import Logout from './Logout'
 import SignUp from './SignUp'
-import NewUser from './NewUser'
 import Profile from './Profile'
-import MyProfile from './MyProfile'
+import Logout from './Logout'
 
 let baseURL = process.env.REACT_APP_BASEURL
-
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      gamers: [],
+      users: [],
+      username: 'Gamer',
+      password: '',
+      name: '',
+      age: '',
+      profilePic: '',
+      location: '',
+      userLoggedIn: false,
     }
   }
 
-  getGamers = () => {
-    fetch(baseURL + '/gamers', {
-      credentials: 'include'
+
+getUsers = () => {
+  // fetch from the backend
+  fetch(baseURL + '/users', {
+    credentials: 'include'
+  })
+  .then(res => {
+    if(res.status === 200) {
+      return res.json()
+    } else {
+      return []
+    }
+  })
+  .then(data => {
+    console.log(data)
+    this.setState({
+      users: data
     })
-    .then(response => {
-      if (response.status === 200) {
-        return response.json()
-      } else {
-        return []
-      }
-      }) 
-    .then(data => {
-      console.log(data)
-      this.setState({
-        gamers: data
+  })
+}
+
+// signup
+signupUser = async (e) => {
+  e.preventDefault()
+  const url = baseURL + '/users/signup'
+  try {
+      const response = await fetch(url, {
+          method: 'POST', 
+          body: JSON.stringify({
+              username: e.target.username.value,
+              password: e.target.password.value,
+              name: e.target.name.value,
+              age: e.target.age.value,
+              profilePic: e.target.profilePic.value,
+              location: e.target.location.value,
+              faveGames: e.target.faveGames.value
+          }),
+          headers: {
+              'Content-Type': 'application/json'
+          }
       })
-    })
+      if (response.status === 201) {
+          this.getUsers()
+          console.log('🏄‍♀️ signup successful! 🏄‍♂️')
+          window.location='/login'
+      }
   }
+  catch (error) {
+      console.log('Error => ', error)
+  }
+}
+
+// login 
+loginUser = async (e) => {
+    console.log('loginUser')
+    e.preventDefault()
+
+    const url = baseURL + '/users/login'
+    const loginBody = {
+        username: e.target.username.value,
+        password: e.target.password.value,      
+    }
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(loginBody),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+        })
+
+        if(response.status === 200) {
+            this.getUsers()
+            console.log('🌈 login successful!🌈')
+            this.setState({
+                username: e.target.username.value,
+                password: e.target.password.value,
+                userLoggedIn: true
+            })
+            window.location='/gamers'
+        }
+    }
+    catch (error) {
+        console.log('Error => ', error)
+    }
+
+}
+getGamers = () => {
+  fetch(baseURL + '/users', {
+    credentials: 'include'
+  })
+  .then(response => {
+    if (response.status === 200) {
+      return response.json()
+    } else {
+      return []
+    }
+    }) 
+  .then(data => {
+    console.log(data)
+    this.setState({
+      users: data
+    })
+  })
+  console.log()
+}
 
   getUserById = (id) => {
-    fetch(this.props.baseURL + '/gamers/' + id,  {
+    fetch(this.props.baseURL + '/users/' + id,  {
       credentials: 'include'
     })
     .then(response => {
-      const user = this.state.gamers.find(gamer => gamer._id === id)
+      const user = this.state.users.find(user => user._id === id)
       if (response.status === 200) {
         console.log(response)
         return user
@@ -59,56 +152,36 @@ class App extends Component {
     .then(data => {
       console.log(data)
       this.setState({
-        gamers: data
+        users: data
       })
     })
   }
 
   addGamer = (newGamer) => {
-    const copyGamers = [...this.state.gamers]
+    const copyGamers = [...this.state]
     copyGamers.push(newGamer)
     this.setState({
-      gamers: copyGamers
+      users: copyGamers
     })
   }
-
-  deleteGamer = (id) => {
-    console.log(id)
-    fetch(baseURL + '/gamers/' + id, {
-      method: 'DELETE',
-      credentials: "include"
-    })
-    .then( res => {
-    console.log(res)
-    const findIndex = this.state.gamers.findIndex(gamer => gamer._id === id)
-    const copyGamers = [...this.state.gamers]
-    copyGamers.splice(findIndex, 1)
-    this.setState({
-      gamers: copyGamers
-    })
-  })
-}
 
   componentDidMount(){
     this.getGamers()
   }
 
   render() {
-    console.log(baseURL)
     return (
       <React.Fragment>
         <Header />
         <Router>
-          <Navigation />
+        <Navigation username={this.state.username} userLoggedIn={this.state.userLoggedIn}/>
           <Switch>
             <Route path="/about" exact component={() => <About />} />
-            <Route path="/signup" exact component={() => <SignUp />} />
-            <Route path="/login" exact component={() => <Login />} />
+            <Route path="/signup" exact component={() => <SignUp getUsers={this.getUsers} signupUser={this.signupUser} />} />
+            <Route path="/login" exact component={() => <Login loginUser={this.loginUser}/>} />
             <Route path="/logout" exact component={() => <Logout />} />
-            <Route path="/addgamer" exact component={() => <NewUser baseURL={baseURL} addGamer={this.addGamer}/>} />
-            <Route path="/gamers" exact component={() => <AllGamers gamers={this.state.gamers} baseURL={baseURL}/>} />
-            <Route path="/profile" exact component={() => <MyProfile profile={this.state.gamers} deleteGamer={this.deleteGamer}/>} />
-            <Route path="/profile/:id" exact component={() => <Profile profiles={this.state.gamers} /> }/> 
+            <Route path="/gamers" exact component={() => <AllGamers users={this.state.users}/>} />
+            <Route path="/profile/:id" exact component={() =>   <Profile profiles={this.state.users} /> }/>  
           </Switch>
         </Router>
         <Footer />

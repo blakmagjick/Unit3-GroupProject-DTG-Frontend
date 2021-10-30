@@ -20,7 +20,7 @@ function SearchGamer() {
 
   useEffect(() => {
 
-    axios.get(baseURL + '/gamers', {
+    axios.get(baseURL + '/users', {
       withCredentials: true
     })
 
