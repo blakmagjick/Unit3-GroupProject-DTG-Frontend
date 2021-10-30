@@ -13,7 +13,7 @@ function SearchGamer() {
     let result = []
 
     result = allData.filter((data) => {
-      return data.name.search(value) !== -1
+      return data.username.search(value) !== -1
     })
     setFilteredData(result)
   }

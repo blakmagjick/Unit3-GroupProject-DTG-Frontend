@@ -12,7 +12,8 @@ export default function Profile(props) {
       
       if (profileData) {
         return(
-         <div className='container1'>       
+         <div className='container1'>     
+            <h1 style={{color: 'white'}}>Spaceholder</h1>  
                <div className='avatar-flip'>
                   <img 
                     src={profileData.profilePic} 

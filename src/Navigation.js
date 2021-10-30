@@ -58,25 +58,7 @@ const Navigation = (props) => {
                 <Link className="nav-link" to="/logout">
                   Logout
                 </Link>
-              </li>
-              {/* <li
-                className={`nav-item  ${
-                  props.location.pathname === "/addgamer" ? "active" : ""
-                }`}
-              >
-                <Link className="nav-link" to="/addgamer">
-                  Create Profile
-                </Link>
-              </li> */}
-              {/* <li
-                className={`nav-item  ${
-                  props.location.pathname === "/profile" ? "active" : ""
-                }`}
-              >
-                <Link className="nav-link" to="/Profile">
-                  Profile 
-                </Link>
-              </li> */}
+              </li>    
               <li
                 className={`nav-item  ${
                   props.location.pathname === "/gamers" ? "active" : ""
