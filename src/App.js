@@ -137,7 +137,6 @@ getGamers = () => {
 }
 
 deleteUser = (id) => {
-  // console.log(id)
   fetch(baseURL + '/users/' + id, {
   method: 'DELETE',
   credentials: "include"
@@ -148,7 +147,7 @@ deleteUser = (id) => {
   this.setState({
     users: copyUsers
   })
-  window.location='/gamers'
+  // window.location='/gamers'
 })
 }
 
