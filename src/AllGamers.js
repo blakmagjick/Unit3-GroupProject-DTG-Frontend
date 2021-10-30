@@ -18,10 +18,8 @@ export default class AllGamers extends Component {
                     {gamerList.map((user, i) => {
                         return(
                             <div key={i} className='gamer'>
-                            <aside id='userinfo'>{user.name}</aside> 
-                                <a href={'https://dtg-downtogame.herokuapp.com/profile/'+user._id} ><img src={user.profilePic} alt={user.username} width='150px'/></a>
-                                <br/>
-                                {/* <Profile profile={gamer} />   */}
+                                <aside id='userinfo'>{user.username}</aside>
+                                <a href={'https://dtg-downtogame.herokuapp.com/profile/'+user._id} ><img src={user.profilePic} alt={user.username} height='150px'/></a>
                             </div>
                             )
                         })
