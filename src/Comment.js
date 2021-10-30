@@ -28,9 +28,9 @@ const Comment = ({
   const replyId = parentId ? parentId : comment.id;
   const createdAt = new Date(comment.createdAt).toLocaleDateString();
   return (
-    <div key={comment.id} className="comment">
+    <div id='bettercomments' key={comment.id} className="comment">
       <div className="comment-image-container">
-        <img src="/user-icon.png" alt='icon goes here'/>
+        <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/speech-balloon_1f4ac.png" alt='chat emoji'/>
       </div>
       <div className="comment-right-part">
         <div className="comment-content">

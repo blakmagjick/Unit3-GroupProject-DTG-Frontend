@@ -2,19 +2,19 @@ export const getComments = async () => {
     return [
       {
         id: "1",
-        body: "First comment",
+        body: "I love these games! Do you want to get together to game sometime soon? I'm located in the area.",
         username: "Jack",
         userId: "1",
         parentId: null,
-        createdAt: "2021-08-16T23:00:33.010+02:00",
+        createdAt: "2021-10-16",
       },
       {
         id: "2",
-        body: "Second comment",
-        username: "John",
+        body: "We should play online sometime! Send me a message.",
+        username: "Stacy",
         userId: "2",
         parentId: null,
-        createdAt: "2021-08-16T23:00:33.010+02:00",
+        createdAt: "2021-08-24",
       },
       // {
       //   id: "3",
