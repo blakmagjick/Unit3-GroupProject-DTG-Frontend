@@ -30,15 +30,11 @@ export default function Profile(props) {
                   <h4 id='profileh4'>{profileData.faveGames}</h4>
                   <h4 id='profileh4'>{profileData.location}📍</h4>
                   <HeartButton  />
-
-                  <button onClick={() => this.deleteUser(profileData._id)}>Delete</button>
-            
               <Comments
                 commentsUrl="https://dtg-downtogame.herokuapp.com/comments"
-                currentUserId="1"/>
+                currentUserId="1"/> <br />
+                <button type='button' onClick={() => this.deleteUser(profileData._id)}>Delete</button>
                 </div>
-            
-         
           )
       } else {
         return(
