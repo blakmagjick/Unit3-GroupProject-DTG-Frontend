@@ -1,50 +1,39 @@
 import React, { Component } from 'react'
-
-let baseUrl = 'http://localhost:3003'
-
+let baseUrl = 'http://:3003'
 class Logout extends Component {
-
     constructor(props) {
         super(props)
-
         this.state = {
             userLoggedIn: '',
         }
     }
-
     logoutUser = () => {
         console.log('hit logout button')
         const url = baseUrl + '/users/logout'
-
         fetch(url, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: 'include'
+            // credentials: 'include'
         })
         .then(res => {
-            if(res.status === 200) {
                 console.log(res.status)
                 console.log('logout successful!')
                 this.setState({
                     userLoggedIn: false
                 })
-            } else {
-                console.log(res.status)
-            }
-        })
-        
+            })
+            console.log(this.state)
     }
+
     render(){
         return(
             <div className ='logout'>
                 <div className='container'>
                     <div className='row align-items-center my-5'>
                         <form onSubmit={this.logoutUser}>
-
-                            <input type='submit' value='logout' />
-
+                            <input type='submit' value='logout'/>
                         </form>
                     </div>
                 </div>
@@ -52,5 +41,4 @@ class Logout extends Component {
         )
     }
 }
-
 export default Logout

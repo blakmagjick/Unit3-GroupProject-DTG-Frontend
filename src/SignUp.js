@@ -1,81 +1,33 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-let baseUrl = process.env.REACT_APP_BASEURL
+function SignUp (props) {
+    return(
+        <div className ='login'>
+            <div id='newformdiv' className='container'>
+                <div className='row align-items-center my-5'>
+                    
+                <form id='newform' onSubmit={props.signupUser}>
+                    <label htmlFor="fname">User:</label>
+                        <input type='text' id='username' name='username'/><br />
+                        <label htmlFor="fname">Password:</label>    
+                        <input type='password' id='password' name='password'/><br />
+                        <label htmlFor="fname">Name:</label> 
+                        <input type ='text' id='name' name='name'/><br />
+                        <label htmlFor="fname">Age:</label> 
+                        <input type ='text' id='age' name='age'/><br />
+                        <label htmlFor="fname">Profile Pic:</label> 
+                        <input type ='text' id='profilePic' name='profilePic'/><br />
+                        <label htmlFor="fname">Location:</label> 
+                        <input type ='text' id='location' name='location'/><br />
+                        <label htmlFor="fname">faveGames:</label> 
+                        <input type ='text' id='faveGames' name='faveGames'/><br />
+                        <input type='submit' value='Sign Up' />        
 
-class SignUp extends Component {
-    
-    constructor(props) {
-        super(props)
-    
-    this.state = {
-            username: '',
-            password: '',
-            userLoggedIn: false,
-        }
-    }
-
-    getUsers = () => {
-        // fetch from the backend
-        fetch(baseUrl + '/users', {
-            credentials: 'include'
-        })
-        .then(res => {
-            if(res.status === 200) {
-                return res.json()
-            } else {
-                return []
-            }
-        })
-    }
-
-    // signup
-    signup = async (e) => {
-        e.preventDefault()
-        const url = baseUrl + '/users/signup'
-        try {
-
-            const response = await fetch(url, {
-                method: 'POST', 
-                body: JSON.stringify({
-                    username: e.target.username.value,
-                    password: e.target.password.value
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            if (response.status === 201) {
-                this.getUsers()
-                console.log('🏄‍♀️ signup successful! 🏄‍♂️')
-            }
-        }
-        catch (error) {
-            console.log('Error => ', error)
-        }
-    }
-
-
-    render(){
-        return(
-            <div className ='login'>
-                <div className='container'>
-                    <div className='row align-items-center my-5'>
-                        
-                        <form onSubmit={this.signup}>
-                            
-                            <input type='text' id='username' name='username'/>
-                            
-                            <input type='password' id='password' name='password'/>
-
-                            <input type='submit'
-                            value='signup' />        
-
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
+        </div>
         )
     }
-}
 
 export default SignUp
