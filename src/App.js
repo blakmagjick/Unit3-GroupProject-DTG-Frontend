@@ -148,6 +148,7 @@ deleteUser = (id) => {
   this.setState({
     users: copyUsers
   })
+  window.location='/gamers'
 })
 }
 
